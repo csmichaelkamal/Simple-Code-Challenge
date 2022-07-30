@@ -1,7 +1,7 @@
-#MAERSK Service Delivery APIs
+# MAERSK Service Delivery APIs
 
 
-###Supported Currencies
+### Supported Currencies
 1. USD
 2. EUR
 3. DKK
