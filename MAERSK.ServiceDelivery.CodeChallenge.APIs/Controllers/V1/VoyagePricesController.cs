@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class VoyagePricesController : ControllerBase
     {
         private readonly ILogger<VoyagePricesController> _logger;

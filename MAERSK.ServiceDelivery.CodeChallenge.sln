@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAERSK.ServiceDelivery.Code
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAERSK.ServiceDelivery.CodeChallenge.UnitTests", "MAERSK.ServiceDelivery.CodeChallenge.UnitTests\MAERSK.ServiceDelivery.CodeChallenge.UnitTests.csproj", "{9E375833-A88C-4B3A-8CC0-4312689159C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{076F1952-A56B-4BF5-AE0C-CBD80EC419B6}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
