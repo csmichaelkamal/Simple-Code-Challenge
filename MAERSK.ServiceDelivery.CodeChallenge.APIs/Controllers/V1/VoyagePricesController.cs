@@ -3,7 +3,9 @@
 
 #region Using
 
-using MAERSK.ServiceDelivery.CodeChallenge.APIs.Models;
+using MAERSK.ServiceDelivery.CodeChallenge.APIs.DTOs;
+using MAERSK.ServiceDelivery.CodeChallenge.APIs.Requests.VoyagePrices;
+using MAERSK.ServiceDelivery.CodeChallenge.APIs.Responses.VoyagePrices;
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -50,16 +52,21 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
         /// <param name="timestamp"></param>
         /// <returns></returns>
         [HttpPost]
-        [Consumes("application/json")]
-        [Produces("application/json")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> UpdatePrice(string voyageCode, decimal price,
-            Currency currency, DateTimeOffset timestamp)
+        public async Task<IActionResult> UpdatePrice(UpdatePriceRequest request)
         {
             _logger.LogInformation($"{nameof(UpdatePrice)} executed at: {DateTime.Now}");
-            return Ok(voyageCode);
+
+            await _voyagePriceService.UpdatePrice(new UpdateVoyagePriceDTO
+            {
+                Currency = request.Currency,
+                Timestamp = request.Timestamp,
+                VoyageCode = request.VoyageCode
+            }).ConfigureAwait(false);
+
+            return NoContent();
         }
 
         /// <summary>
@@ -70,8 +77,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
         /// <param name="currencyName"></param>
         /// <returns>Avergae price of the last 10 prices for containers</returns>
         [HttpGet("Average/{voyageCode}/{currencyName}")]
-        [Consumes("application/json")]
-        [Produces("application/json")]
+        [Produces(typeof(GetAveragePriceResponse))]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
@@ -79,7 +85,18 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
         {
             _logger.LogInformation($"{nameof(GetAveragePrice)} executed at: {DateTime.Now}");
 
-            var averagePrice = await _voyagePriceService.GetAveragePrice(new DTOs.GetVoyagePriceDTO { VoyageCode = voyageCode });
+            var averagePrice = await _voyagePriceService.
+                GetAveragePrice(new GetVoyagePriceDTO
+                {
+                    CurrencyName = currencyName,
+                    VoyageCode = voyageCode
+                })
+                .ConfigureAwait(false);
+
+            if (averagePrice is null)
+            {
+                return NotFound();
+            }
 
             return Ok(averagePrice);
         }

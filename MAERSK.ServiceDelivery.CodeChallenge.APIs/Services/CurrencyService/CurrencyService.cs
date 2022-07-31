@@ -16,7 +16,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services
             _serviceDeliveryDbContext = serviceDeliveryDbContext;
         }
 
-        public List<Currency> GetCurrencies()
+        public List<Currency> GetSupportedCurrencies()
         {
             // We should appy pagination here, if we are supporting many currencies now or in the future
             return _serviceDeliveryDbContext.Currencies

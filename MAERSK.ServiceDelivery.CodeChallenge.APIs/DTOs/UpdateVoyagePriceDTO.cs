@@ -1,14 +1,16 @@
 ﻿// This code is private to MAERSK
 // Copyright 2022
 
-using MAERSK.ServiceDelivery.CodeChallenge.APIs.Models;
+using System;
 
 namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.DTOs
 {
     public class UpdateVoyagePriceDTO
     {
         public string VoyageCode { get; set; }
-        public decimal Price { get; set; }
-        public Currency Currency { get; set; }
+        
+        public CurrencyDTO Currency { get; set; }
+        
+        public DateTimeOffset Timestamp { get; set; }
     }
 }

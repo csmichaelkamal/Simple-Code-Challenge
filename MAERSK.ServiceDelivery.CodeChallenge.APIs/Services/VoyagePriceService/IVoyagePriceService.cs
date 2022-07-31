@@ -2,6 +2,7 @@
 // Copyright 2022
 
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.DTOs;
+using MAERSK.ServiceDelivery.CodeChallenge.APIs.Responses.VoyagePrices;
 using System.Threading.Tasks;
 
 namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService
@@ -9,7 +10,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService
     public interface IVoyagePriceService
     {
         Task UpdatePrice(UpdateVoyagePriceDTO updateVoyagePriceDTO);
-        
-        Task<decimal> GetAveragePrice(GetVoyagePriceDTO getAverageVoyagePriceDTO);
+
+        Task<GetAveragePriceResponse> GetAveragePrice(GetVoyagePriceDTO getAverageVoyagePriceDTO);
     }
 }

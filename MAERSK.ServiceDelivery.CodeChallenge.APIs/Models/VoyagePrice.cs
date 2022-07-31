@@ -19,7 +19,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Models
         public decimal Price { get; set; }
         
 
-        public Currency Currency { get; set; }
+        public int CurrencyId { get; set; }
         
 
         public DateTimeOffset Timestamp { get; set; }

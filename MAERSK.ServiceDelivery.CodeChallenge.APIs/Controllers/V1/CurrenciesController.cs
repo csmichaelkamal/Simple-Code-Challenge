@@ -30,28 +30,28 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
         /// We will update the application to support more currencies as our business continue to grows
         /// </summary>
         /// <returns>List of supported currencies used in our system</returns>
-        [HttpGet("Available")]
+        [HttpGet("Supported")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
-        public IActionResult GetAvailableCurrencies()
+        public IActionResult GetSupportedCurrencies()
         {
-            _logger.LogInformation($"{nameof(GetAvailableCurrencies)}: executed at: {DateTime.Now}");
+            _logger.LogInformation($"{nameof(GetSupportedCurrencies)}: executed at: {DateTime.Now}");
 
-            var availableCurrencies = _currencyService.GetCurrencies();
+            var availableCurrencies = _currencyService.GetSupportedCurrencies();
 
             if (availableCurrencies != null && availableCurrencies.Count > 0)
             {
-                _logger.LogInformation($"{nameof(GetAvailableCurrencies)}: " +
+                _logger.LogInformation($"{nameof(GetSupportedCurrencies)}: " +
                     $"{(nameof(availableCurrencies))} count: {availableCurrencies.Count}");
                 return Ok(availableCurrencies);
             }
 
-            _logger.LogError($"{nameof(GetAvailableCurrencies)}: " +
+            _logger.LogError($"{nameof(GetSupportedCurrencies)}: " +
                     $"{(nameof(availableCurrencies))} not found");
 
-            return NotFound("No Available Currencies");
+            return NotFound("No Available Currencies Supported");
         }
     }
 }

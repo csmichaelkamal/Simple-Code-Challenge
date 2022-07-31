@@ -8,6 +8,6 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services
 {
     public interface ICurrencyService
     {
-        List<Currency> GetCurrencies();
+        List<Currency> GetSupportedCurrencies();
     }
 }

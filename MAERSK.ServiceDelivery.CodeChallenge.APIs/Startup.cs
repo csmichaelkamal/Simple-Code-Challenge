@@ -57,6 +57,10 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs
                 app.UseDeveloperExceptionPage();
             }
 
+            using (var scope = app.ApplicationServices.CreateScope())
+            using (var context = scope.ServiceProvider.GetService<ServiceDeliveryDbContext>())
+                context.Database.EnsureCreated();
+
             app.UseHttpsRedirection();
 
             app.UseSwagger();
