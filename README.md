@@ -2,9 +2,9 @@
 
 ## This Repo is private, secure and is only visible for MAERSK
 
-This is a very simple APIs for managing Voyage [Container](#terminologies-used-in-this-project) Prices, like updating the voyage price,
-and retriving the average container price for the last 10 voyages for a given currency.
-See below for the [suppoerted currencies](#supported-currencies)
+This is a very simple API project for managing Voyage [Container](#terminologies-used-in-this-project) Prices, like updating the voyage price,
+and retrieving the average container price for the last 10 voyages for a given currency.
+See below for the [supported currencies](#supported-currencies)
 
 Providing two main APIs (and one utility endpoint):
 1. `UpdatePrice`
@@ -13,11 +13,11 @@ Providing two main APIs (and one utility endpoint):
 Tools and Technologies used in this project:
 - .Net Core
 - Asp.Net Core (API)
-- C# as a programming language
+- C#
 - Entity Framework Core (EF Core) with InMemory Db
 - Visual Studio 2019
 - Docker (on linux)
-- API Verioning
+- API Versioning
 - Swagger (Open API) via SwashBuckle library 
 
 ### We should:
@@ -33,4 +33,4 @@ Tools and Technologies used in this project:
 4. GBP
 
 ### Terminologies used in this project
-- `container`: this word is for the physical containers, don't get confused with Docker Container
+- `container`: this word is for the [intermodal container](https://en.wikipedia.org/wiki/Intermodal_container), don't get confused with [virtualization Container](https://en.wikipedia.org/wiki/OS-level_virtualization#:~:text=user%20space%20instances%2C-,called%20containers,-(LXC%2C)
