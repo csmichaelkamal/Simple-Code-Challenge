@@ -33,4 +33,5 @@ Tools and Technologies used in this project:
 4. GBP
 
 ### Terminologies used in this project
-- `container`: this word is for the [intermodal container](https://en.wikipedia.org/wiki/Intermodal_container), don't get confused with [virtualization Container](https://en.wikipedia.org/wiki/OS-level_virtualization#:~:text=user%20space%20instances%2C-,called%20containers,-(LXC%2C)
+- `container`: this word is for the [intermodal container](https://en.wikipedia.org/wiki/Intermodal_container), 
+don't get confused with [virtualization Container](https://en.wikipedia.org/wiki/OS-level_virtualization#:~:text=OS%2Dlevel%20virtualization%20is%20an%20operating%20system%20(OS)%20paradigm%20in%20which%20the%20kernel%20allows%20the%20existence%20of%20multiple%20isolated%20user%20space%20instances%2C%20called%20containers)
