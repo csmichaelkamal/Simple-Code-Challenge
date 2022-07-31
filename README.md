@@ -2,9 +2,9 @@
 
 ## This Repo is private, secure and is only visible for MAERSK
 
-This is a very simple APIs for managing Voyage Container Prices, like updating the voyage price,
+This is a very simple APIs for managing Voyage [Container](#terminologies-used-in-this-project) Prices, like updating the voyage price,
 and retriving the average container price for the last 10 voyages for a given currency.
-See below for the suppoerted currencies
+See below for the [suppoerted currencies](#supported-currencies)
 
 Providing two main APIs (and one utility endpoint):
 1. `UpdatePrice`
@@ -33,4 +33,4 @@ Tools and Technologies used in this project:
 4. GBP
 
 ### Terminologies used in this project
-- container: this word is for the physical containers, don't get confused with Docker Container
+- `container`: this word is for the physical containers, don't get confused with Docker Container
