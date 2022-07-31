@@ -3,8 +3,6 @@
 
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Extensions;
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Models;
-using MAERSK.ServiceDelivery.CodeChallenge.APIs.Services;
-using MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 
 namespace MAERSK.ServiceDelivery.CodeChallenge.APIs
 {

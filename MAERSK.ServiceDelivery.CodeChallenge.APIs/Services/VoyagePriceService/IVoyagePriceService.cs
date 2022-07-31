@@ -8,6 +8,8 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService
 {
     public interface IVoyagePriceService
     {
-        Task UpdatePrice(GetVoyagePriceDTO voyagePriceDTO);
+        Task UpdatePrice(UpdateVoyagePriceDTO updateVoyagePriceDTO);
+        
+        Task<decimal> GetAveragePrice(GetVoyagePriceDTO getAverageVoyagePriceDTO);
     }
 }

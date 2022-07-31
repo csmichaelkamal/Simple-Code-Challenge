@@ -1,12 +1,17 @@
 ﻿// This code is private to MAERSK
 // Copyright 2022
 
+#region Using
+
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Models;
+using MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+
+#endregion
 
 namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
 {
@@ -15,12 +20,26 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class VoyagePricesController : ControllerBase
     {
+        #region Members
+
+        private readonly IVoyagePriceService _voyagePriceService;
         private readonly ILogger<VoyagePricesController> _logger;
 
-        public VoyagePricesController(ILogger<VoyagePricesController> logger)
+        #endregion
+
+        #region Ctor
+
+        public VoyagePricesController(
+            IVoyagePriceService voyagePriceService,
+            ILogger<VoyagePricesController> logger)
         {
+            _voyagePriceService = voyagePriceService;
             _logger = logger;
         }
+
+        #endregion
+
+        #region Public EndPoints
 
         /// <summary>
         /// Update container price for a given voyage
@@ -50,7 +69,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
         /// <param name="voyageCode"></param>
         /// <param name="currencyName"></param>
         /// <returns>Avergae price of the last 10 prices for containers</returns>
-        [HttpGet("Average/{voyageCode}/{currency}")]
+        [HttpGet("Average/{voyageCode}/{currencyName}")]
         [Consumes("application/json")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
@@ -59,7 +78,12 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
         public async Task<IActionResult> GetAveragePrice(string voyageCode, string currencyName)
         {
             _logger.LogInformation($"{nameof(GetAveragePrice)} executed at: {DateTime.Now}");
-            return Ok(voyageCode);
+
+            var averagePrice = await _voyagePriceService.GetAveragePrice(new DTOs.GetVoyagePriceDTO { VoyageCode = voyageCode });
+
+            return Ok(averagePrice);
         }
+
+        #endregion
     }
 }
