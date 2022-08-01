@@ -4,6 +4,7 @@
 using FluentAssertions;
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Models;
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Services;
+using MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Helpers;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.CurrencyServic
         {
             _currencyService
                 .Setup(service => service.GetSupportedCurrencies())
-                .Returns(PopulateData());
+                .Returns(CurrencyHelper.PopulateData());
         }
 
         #endregion
@@ -57,7 +58,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.CurrencyServic
 
         [Test]
         [Category("GetSupportedCurrencies")]
-        public void GetSupportedCurrencies_WhenGetCalled_AListOfCurrenciesIsExpcted()
+        public void GetSupportedCurrencies_WhenGetCalled_AListOfCurrenciesIsExpected()
         {
             // Arrange
 
@@ -87,21 +88,5 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.CurrencyServic
         }
 
         #endregion
-
-        #region Helper Methods
-
-        private List<Currency> PopulateData()
-        {
-            return new List<Currency>
-            {
-                new Currency { Id = 1, Name = "USD"},
-                new Currency { Id = 2, Name = "EUR"},
-                new Currency { Id = 3, Name = "DKK"},
-                new Currency { Id = 4, Name = "GBP"}
-            };
-        }
-
-        #endregion
-
     }
 }

@@ -18,8 +18,4 @@
     <ProjectReference Include="..\MAERSK.ServiceDelivery.CodeChallenge.APIs\MAERSK.ServiceDelivery.CodeChallenge.APIs.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\VoyagePriceService\" />
-  </ItemGroup>
-
 </Project>

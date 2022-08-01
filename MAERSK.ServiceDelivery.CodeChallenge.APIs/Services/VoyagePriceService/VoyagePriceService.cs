@@ -13,7 +13,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService
 {
     public class VoyagePriceService : IVoyagePriceService
     {
-        private const int NUMBER_OF_VOYAGES = 10;
+        private const int Number_Of_Voyages = 10;
         private readonly ServiceDeliveryDbContext _serviceDeliveryDbContext;
         private readonly ILogger<VoyagePriceService> _logger;
 
@@ -45,7 +45,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService
             var voyageLastPrices = _serviceDeliveryDbContext.VoyagePrices
                 .Where(voyage => string.Equals(voyage.VoyageCode, getAverageVoyagePriceDTO.VoyageCode, StringComparison.InvariantCultureIgnoreCase))
                 .OrderByDescending(voyage => voyage.Timestamp)
-                .Take(NUMBER_OF_VOYAGES)
+                .Take(Number_Of_Voyages)
                 .ToList();
 
             if (voyageLastPrices is null || voyageLastPrices.Count < 1)
