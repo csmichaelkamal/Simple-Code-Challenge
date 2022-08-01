@@ -24,7 +24,7 @@ Tools and Technologies used in this project:
 - Use a cache for our APIs, like Redis or Memcached
 - Use a mapper like Automapper
 - Securing the APIs via OAuth2.0 and OpenId Connect (maybe via IdentityServer4)
-- Use [Repository Pattern](https://deviq.com/design-patterns/repository-pattern) and [UnitOfOwrk](https://dotnettutorials.net/lesson/unit-of-work-csharp-mvc/#:~:text=The%20Unit%20of%20Work%20pattern,or%20fail%20as%20one%20unit.),
+- Use [Repository Pattern](https://deviq.com/design-patterns/repository-pattern) and [UnitOfWork](https://dotnettutorials.net/lesson/unit-of-work-csharp-mvc/#:~:text=The%20Unit%20of%20Work%20pattern,or%20fail%20as%20one%20unit.),
 but because of being a small project with just few [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations, we didn't use it
 
 ### Supported Currencies
