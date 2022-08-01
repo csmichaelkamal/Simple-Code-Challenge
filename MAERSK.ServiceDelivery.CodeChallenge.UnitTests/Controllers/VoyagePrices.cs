@@ -36,13 +36,6 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Controllers.VoyagePrice
             Assert.Pass();
         }
 
-        [Test]
-        [Category("GetAveragePrice")]
-        public void GetAveragePrice_WhenCurrencyIsNull_BadRequestIsExpected()
-        {
-            Assert.Pass();
-        }
-
         #endregion
     }
 }
