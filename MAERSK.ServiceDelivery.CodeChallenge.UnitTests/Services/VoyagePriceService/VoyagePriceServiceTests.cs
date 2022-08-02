@@ -12,7 +12,6 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.VoyagePriceServiceTests
@@ -23,7 +22,6 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.VoyagePriceSer
 
         private readonly Mock<IVoyagePriceService> _voyagePriceService;
         private readonly Mock<ILogger<VoyagePriceService>> _logger;
-        private readonly Mock<ServiceDeliveryDbContext> _dbContext;
 
         #endregion
 
@@ -32,7 +30,6 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.VoyagePriceSer
         public VoyagePriceServiceTests()
         {
             _logger = new Mock<ILogger<VoyagePriceService>>();
-            _dbContext = new Mock<ServiceDeliveryDbContext>();
             _voyagePriceService = new Mock<IVoyagePriceService>();
         }
 
@@ -96,6 +93,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.VoyagePriceSer
 
         [Test]
         [Category("UpdatePrice")]
+        [Description("This is not a unit test, rather it's an integration test between two methods")]
         public async Task UpdatePrice_WhenGetCalled_AveragePriceIsExpected()
         {
             // Arrange
@@ -132,8 +130,8 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Services.VoyagePriceSer
 
             actual.Should().NotBeNull();
             actual.VoyageCode.Should().Be("VoyageCode101");
+            // (100 + 109) / 2 = 104.5 => the average
             actual.AveragePrice.Should().Be((decimal)104.5);
-
         }
 
         #endregion
