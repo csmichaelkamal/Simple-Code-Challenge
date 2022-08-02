@@ -2,6 +2,19 @@
 
 ## This Repo is private, secure and is only visible for MAERSK
 
+## TL;DR
+To Run the project:
+- You need .Net SDK 3.1
+- You can run it on Visual Studio [2022](https://visualstudio.microsoft.com/downloads/), [vscode](https://code.visualstudio.com/),
+or from the cmd using [.Net CLI](https://docs.microsoft.com/en-us/dotnet/core/sdk)
+- Make sure that the API project is set as the startup project
+- Press Ctrl+F5 (visual studio) or
+	- From the command line, run:
+		- `dotnet restore`
+		- `dotnet build --no-restore`
+		- `dotnet run --no-build MAERSK.ServiceDelivery.CodeChallenge.APIs.dll`, `--no-restore` is called implicitly 
+		- Note: you can directly run `dotnet run ...`, it will implicitly restore and build the project
+
 This is a very simple API project for managing Voyage [Container](#terminologies-used-in-this-project) Prices, like updating the voyage price,
 and retrieving the average container price for the last 10 voyages for a given currency.
 See below for the [supported currencies](#supported-currencies)
