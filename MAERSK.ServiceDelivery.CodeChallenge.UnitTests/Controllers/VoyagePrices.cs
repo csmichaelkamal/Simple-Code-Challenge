@@ -87,7 +87,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Controllers.VoyagePrice
         public async Task GetAveragePrice_WhenVoyageCodeIsNull_NotFoundResultIsExpected()
         {
             // Arrange
-            var expectedType = typeof(NotFoundResult);
+            var expectedType = typeof(NotFoundObjectResult);
 
             // Act
             var actual = await _voyagePricesController.GetAveragePrice(It.IsAny<string>(), "USD");
@@ -101,7 +101,7 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.UnitTests.Controllers.VoyagePrice
         public async Task GetAveragePrice_WhenCurrencyIsNull_NotFoundResultIsExpected()
         {
             // Arrange
-            var expectedType = typeof(NotFoundResult);
+            var expectedType = typeof(NotFoundObjectResult);
 
             // Act
             var actual = await _voyagePricesController.GetAveragePrice(VoyageCode, It.IsAny<string>());

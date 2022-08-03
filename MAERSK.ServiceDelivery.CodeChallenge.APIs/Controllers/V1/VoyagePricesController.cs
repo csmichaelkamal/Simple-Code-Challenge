@@ -5,6 +5,7 @@
 
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.DTOs;
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Requests.VoyagePrices;
+using MAERSK.ServiceDelivery.CodeChallenge.APIs.Responses.Errors;
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Responses.VoyagePrices;
 using MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService;
 using Microsoft.AspNetCore.Http;
@@ -78,9 +79,9 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
         /// <returns>Avergae price of the last 10 prices for containers</returns>
         [HttpGet("Average/{voyageCode}/{currencyName}")]
         [Produces(typeof(GetAveragePriceResponse))]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetAveragePriceResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(NotFoundErrorResponse), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAveragePrice(string voyageCode, string currencyName)
         {
             _logger.LogInformation($"{nameof(GetAveragePrice)} executed at: {DateTime.Now}");
@@ -95,7 +96,12 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Controllers
 
             if (averagePrice is null)
             {
-                return NotFound();
+                _logger.LogWarning($"{nameof(GetAveragePrice)} {voyageCode} is not found!");
+
+                return NotFound(new NotFoundErrorResponse
+                {
+                    EntityName = voyageCode
+                });
             }
 
             return Ok(averagePrice);

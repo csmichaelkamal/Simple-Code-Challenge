@@ -9,8 +9,8 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Extensions
     {
         public static void AddDataServices(this IServiceCollection services)
         {
-            services.AddTransient<ICurrencyService, CurrencyService>();
-            services.AddTransient<IVoyagePriceService, VoyagePriceService>();
+            services.AddScoped<ICurrencyService, CurrencyService>();
+            services.AddScoped<IVoyagePriceService, VoyagePriceService>();
         }
 
         public static void AddSwaggerService(this IServiceCollection services)

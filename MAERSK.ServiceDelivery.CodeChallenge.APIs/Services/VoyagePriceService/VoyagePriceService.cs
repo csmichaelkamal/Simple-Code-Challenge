@@ -125,7 +125,6 @@ namespace MAERSK.ServiceDelivery.CodeChallenge.APIs.Services.VoyagePriceService
             return voyage is null ? false : true;
         }
 
-
         #endregion
     }
 }
