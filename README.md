@@ -1,7 +1,4 @@
-# MAERSK Service Delivery APIs
-
-## This Repo is private, secure and is only visible for MAERSK
-
+# Service Delivery APIs
 ## TL;DR
 To Run the project:
 - You need .Net SDK 3.1
